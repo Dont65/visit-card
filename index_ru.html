@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Визитка Dont65 (RU)</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+          integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <div class="main-container">
+      <div class="top-buttons">
+        <div class="theme-switcher">
+          <button id="theme-toggle">
+            <i class="fas fa-sun"></i>
+          </button>
+        </div>
+        <div class="language-switcher">
+          <a href="index_en.html"> 🇺🇸</a>
+        </div>
+      </div>
+        <div class="content-wrapper">
+            <h1 class="empty-header">Информация о Dont65</h1>
+            <div class="content-spacer"></div>
+             <div class="wrapper">
+                 <main class="content">
+                     <section id="about" class="about">
+                         <h1>Обо мне</h1>
+                         <p><strong>Псевдоним:</strong> Dont65</p>
+                         <p><strong>Возраст:</strong> <span id="age"></span></p>
+                         <p><strong>Работа:</strong> Developer</p>
+                     </section>
+                     <section id="skills" class="skills">
+                         <h1>Навыки</h1>
+                         <ul>
+                             <li><a href="https://www.python.org" target="_blank">Python</a></li>
+                             <li><a href="https://developer.mozilla.org/ru/docs/Web/HTML" target="_blank">HTML</a></li>
+                             <li><a href="https://developer.mozilla.org/ru/docs/Web/CSS" target="_blank">CSS</a></li>
+                             <li><a href="https://developer.mozilla.org/ru/docs/Web/JavaScript" target="_blank">JavaScript</a></li>
+                             <li><a href="https://www.java.com" target="_blank">Java</a></li>
+                             <li><a href="https://skriptlang.org/" target="_blank">Skript</a></li>
+                             <li><a href="https://isocpp.org/" target="_blank">C++</a></li>
+                             <li><a href="https://learn.microsoft.com/ru-ru/dotnet/csharp/" target="_blank">C#</a></li>
+                         </ul>
+                     </section>
+                     <section id="contact" class="contact">
+                         <h1>Контакты</h1>
+                         <div class="social-icons">
+                             <a href="https://discord.gg/YfCEKBPnKB" target="_blank" class="social-icon discord-icon">
+                                 <i class="fab fa-discord"></i>
+                             </a>
+                             <a href="https://t.me/Dont_65" target="_blank" class="social-icon telegram-icon">
+                                 <i class="fab fa-telegram"></i>
+                             </a>
+                             <a href="mailto:dont65@vk.ru" class="social-icon email-icon">
+                                 <i class="fas fa-envelope"></i>
+                             </a>
+                             <a href="https://github.com/Dont65" target="_blank" class="social-icon github-icon">
+                                 <i class="fab fa-github"></i>
+                             </a>
+                         </div>
+                     </section>
+                 </main>
+             </div>
+            <section id="projects" class="projects">
+                <div class="project-container">
+                    <h1>Мои проекты</h1>
+                    <div class="project">
+                        <h2>TiaCraft Server <span class="closed-tag" style="background-color:#ff4637"> (Закрыт)</span></h2>
+                        <p>Tia Craft: Легенда ушедших дней… Здесь мы смеялись, сражались, строили и делились незабываемыми моментами. Пусть сервер и неактивен, но воспоминания о Tia Craft будут жить вечно. Спасибо всем, кто был частью этой истории.</p>
+                    </div>
+                    <div class="project">
+                        <h2>Unicorn Land <span class="closed-tag" style="background-color:#ff4637">(Закрыт)</span></h2>
+                        <p>Unicorn Land: Там, где царил хаос… Вспомните те безумные времена, когда гриферство было образом жизни, а выживание — настоящей борьбой за каждый блок. Unicorn Land — это не просто сервер, это легенда об анархии, которую мы храним в памяти.</p>
+                    </div>
+                    <div class="project">
+                        <h2>Оксикитон РП <span class="closed-tag" style="background-color:#ff4637">(Закрыт)</span></h2>
+                        <p>Оксикитон РП: Затерянный мир средневековья… Помните те времена, когда звон мечей, шепот интриг и магия витали в воздухе? Оксикитон РП был не просто сервером, а порталом в эпоху рыцарей, замков и приключений. Пусть его история останется в наших сердцах.</p>
+                    </div>
+                    <div class="project">
+                        <h2>Statistic RP <span class="frozen-tag" style="background-color:#53bfd5">(Заморожен)</span></h2>
+                        <p>Statistic RP: Мир, где не было границ… Помните, как мы прыгали из одной эпохи в другую, от фэнтези до киберпанка, от средневековья до будущего? Statistic RP был калейдоскопом миров, где каждое приключение было уникальным. Пусть эти воспоминания останутся с нами.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+  </div>
+    <script>
+      const themeToggle = document.getElementById('theme-toggle');
+      const body = document.body;
+      const sunIcon = '<i class="fas fa-sun"></i>';
+      const moonIcon = '<i class="fas fa-moon"></i>';
+      const birthDate = new Date('2008-01-02');
+      function calculateAge() {
+        const today = new Date();
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const month = today.getMonth() - birthDate.getMonth();
+        if (month < 0 || (month === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        return age;
+      }
+      function updateAgeDisplay() {
+        const ageElement = document.getElementById('age');
+        ageElement.textContent = calculateAge();
+      }
+      updateAgeDisplay();
+     setInterval(updateAgeDisplay, 1000 * 60 * 60 * 24);
+    function setTheme(theme) {
+      body.classList.toggle('light-theme', theme === 'light');
+       if (theme === 'light') {
+          themeToggle.innerHTML = moonIcon;
+          localStorage.setItem('theme', 'light');
+        } else {
+           themeToggle.innerHTML = sunIcon;
+           localStorage.setItem('theme', 'dark');
+        }
+      }
+      themeToggle.addEventListener('click', function() {
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+      });
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        setTheme(savedTheme);
+      } else {
+         setTheme('dark');
+      }
+    </script>
+</body>
+</html>
