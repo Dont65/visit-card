@@ -171,14 +171,28 @@
        return dates;
     }
     // Пример данных для графика (замените на ваши реальные данные)
+        function generateRandomNumbers(count, min, max) {
+        if (count <= 0 || min > max) {
+            return [];
+        }
+
+        const randomNumbers = [];
+        for (let i = 0; i < count; i++) {
+            const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+            randomNumbers.push(randomNumber);
+        }
+        return randomNumbers;
+    }
+    const count = 21;
+    const min = 0;
+    const max = 20;
+
+    const randomNumbers = generateRandomNumbers(count, min, max);
     const visitData = {
         labels: generateLastDays(21),
         datasets: [{
         label: 'Number of visits',
-        data: [
-          12, 19, 3, 5, 2, 3, 10, 15, 8, 7, 9, 12,
-          14, 16, 4, 6, 10, 11, 13, 16, 19
-          ], // Замените на ваши данные
+        data: randomNumbers, // Замените на ваши данные
         backgroundColor: 'rgba(75, 192, 192, 0.2)',
         borderColor: 'rgba(75, 192, 192, 1)',
         borderWidth: 1
