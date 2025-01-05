@@ -432,3 +432,16 @@ p a:hover {
 /* Стиль для светлой темы */
 body.light-theme p a {
     color: #333; /* Цвет для светлой темы */
+}
+.chart-container {
+    width: 100%; /* Занимает всю доступную ширину */
+    display: flex; /* Используем flexbox для центрирования, если нужно */
+    justify-content: center; /* Центрируем по горизонтали, если нужно */
+    align-items: center; /* Центрируем по вертикали, если нужно */
+    padding: 20px 0;  /* Добавляем отступ сверху и снизу */
+}
+
+.visitChart {
+   width: 100%;
+   max-width:1900px;
+}
