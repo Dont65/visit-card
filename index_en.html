@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
           integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="main-container">
@@ -94,6 +95,7 @@
           </section>
         </div>
     </div>
+    <canvas id="visitChart" target="_blank" class="visitChart"></canvas>
     <script>
         const themeToggle = document.getElementById('theme-toggle');
         const body = document.body;
@@ -156,6 +158,66 @@
         } else {
             setTheme('dark');
         }
-     </script>
+
+    // Функция для генерации дат за последние 21 день
+    function generateLastDays(numDays) {
+        const today = new Date();
+        const dates = [];
+        for (let i = numDays - 1; i >= 0; i--) {
+        const date = new Date(today);
+        date.setDate(today.getDate() - i);
+        dates.push(date.toLocaleDateString());
+        }
+       return dates;
+    }
+    // Пример данных для графика (замените на ваши реальные данные)
+    const visitData = {
+        labels: generateLastDays(21),
+        datasets: [{
+        label: 'Number of visits',
+        data: [
+          12, 19, 3, 5, 2, 3, 10, 15, 8, 7, 9, 12,
+          14, 16, 4, 6, 10, 11, 13, 16, 19
+          ], // Замените на ваши данные
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 1
+        }]
+    };
+
+    // Получение контекста canvas
+    const ctx = document.getElementById('visitChart').getContext('2d');
+
+    // Создание графика
+    const visitChart = new Chart(ctx, {
+      type: 'bar', // или 'line', 'bar' и тд
+      data: visitData,
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        },
+        plugins: {
+          legend: {
+              labels: {
+                color: localStorage.getItem('theme') === 'light' ? '#333' : '#fff', // Зависит от темы
+              }
+           }
+        }
+      }
+    });
+
+    function updateChartTheme(){
+        const theme = localStorage.getItem('theme') || 'dark';
+         visitChart.options.plugins.legend.labels.color = theme === 'light' ? '#333' : '#fff';
+          visitChart.update();
+    }
+    window.addEventListener('storage', () => {
+       updateChartTheme()
+    });
+
+    updateChartTheme();
+    </script>
     </body>
     </html>
