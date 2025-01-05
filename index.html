@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Визитка Dont65 (Ru)</title>
+    <title>Визитка Dont65 (RU)</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,8 +32,9 @@
                      <section id="about" class="about">
                          <h1>Обо мне</h1>
                          <p><strong>Псевдоним:</strong> Dont65</p>
-                         <p><strong>Возраст:</strong> <span id="age"></span></p>
-                         <p><strong>Работа:</strong> Developer</p>
+                         <p><strong>Возраст:</strong> <span id="age" data-hover-text="Настоящий возраст"></span></p>
+                         <p><strong>Страна:</strong> <a href="https://catalog.detmir.st/media/o4N3_0gFL-EnMCD0qY4YTP8f4wP4w6G91DBemimI_5Y=">Россия</a></p>
+                         <p><strong>Работа:</strong> <a href="https://repository-images.githubusercontent.com/195893283/7d698f80-a1ea-11e9-89a4-7ddd0a4e6e86">Разработчик</a></p>
                      </section>
                      <section id="skills" class="skills">
                          <h1>Навыки</h1>
@@ -63,6 +64,7 @@
                              <a href="https://github.com/Dont65" target="_blank" class="social-icon github-icon">
                                  <i class="fab fa-github"></i>
                              </a>
+                            </a>
                             <a href="https://ru.namemc.com/profile/Dont65.1" target="_blank" class="namemc-link">
                               <div class="namemc-icon"></div>
                             </a>  
@@ -74,12 +76,12 @@
                 <div class="project-container">
                     <h1>Мои проекты</h1>
                     <div class="project">
-                        <h2>TiaCraft Server <span class="closed-tag" style="background-color:#ff4637"> (Закрыт)</span></h2>
-                        <p>Tia Craft: Легенда ушедших дней… Здесь мы смеялись, сражались, строили и делились незабываемыми моментами. Пусть сервер и неактивен, но воспоминания о Tia Craft будут жить вечно. Спасибо всем, кто был частью этой истории.</p>
+                        <h2>TiaCraft <span class="closed-tag" style="background-color:#ff4637"> (Закрыт)</span></h2>
+                        <p>TiaCraft: Легенда ушедших дней… Здесь мы смеялись, сражались, строили и делились незабываемыми моментами. Пусть сервер и неактивен, но воспоминания о Tia Craft будут жить вечно. Спасибо всем, кто был частью этой истории.</p>
                     </div>
                     <div class="project">
-                        <h2>Unicorn Land <span class="closed-tag" style="background-color:#ff4637">(Закрыт)</span></h2>
-                        <p>Unicorn Land: Там, где царил хаос… Вспомните те безумные времена, когда гриферство было образом жизни, а выживание — настоящей борьбой за каждый блок. Unicorn Land — это не просто сервер, это легенда об анархии, которую мы храним в памяти.</p>
+                        <h2>UnicornLand <span class="closed-tag" style="background-color:#ff4637">(Закрыт)</span></h2>
+                        <p>UnicornLand: Там, где царил хаос… Вспомните те безумные времена, когда гриферство было образом жизни, а выживание — настоящей борьбой за каждый блок. Unicorn Land — это не просто сервер, это легенда об анархии, которую мы храним в памяти.</p>
                     </div>
                     <div class="project">
                         <h2>Оксикитон РП <span class="closed-tag" style="background-color:#ff4637">(Закрыт)</span></h2>
@@ -93,47 +95,68 @@
             </section>
         </div>
   </div>
-    <script>
-      const themeToggle = document.getElementById('theme-toggle');
-      const body = document.body;
-      const sunIcon = '<i class="fas fa-sun"></i>';
-      const moonIcon = '<i class="fas fa-moon"></i>';
-      const birthDate = new Date('2008-01-02');
-      function calculateAge() {
-        const today = new Date();
-        let age = today.getFullYear() - birthDate.getFullYear();
-        const month = today.getMonth() - birthDate.getMonth();
-        if (month < 0 || (month === 0 && today.getDate() < birthDate.getDate())) {
-            age--;
+   <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        const sunIcon = '<i class="fas fa-sun"></i>';
+        const moonIcon = '<i class="fas fa-moon"></i>';
+        const birthDate = new Date('2008-01-02');
+        const formattedBirthDate = '02.01.2008'; // Форматированная дата рождения
+
+        function calculateAge() {
+            const today = new Date();
+            let age = today.getFullYear() - birthDate.getFullYear();
+            const month = today.getMonth() - birthDate.getMonth();
+            if (month < 0 || (month === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+            return age;
         }
-        return age;
-      }
-      function updateAgeDisplay() {
-        const ageElement = document.getElementById('age');
-        ageElement.textContent = calculateAge();
-      }
-      updateAgeDisplay();
-     setInterval(updateAgeDisplay, 1000 * 60 * 60 * 24);
-    function setTheme(theme) {
-      body.classList.toggle('light-theme', theme === 'light');
-       if (theme === 'light') {
-          themeToggle.innerHTML = moonIcon;
-          localStorage.setItem('theme', 'light');
+
+         function updateAgeDisplay() {
+            const ageElement = document.getElementById('age');
+            const calculatedAge = calculateAge();
+            ageElement.textContent = calculatedAge;
+             ageElement.dataset.hoverText = formattedBirthDate; // Форматированная дата рождения
+            // Важно: Только здесь добавляем обработчики событий!
+            if (ageElement.dataset.hoverText) {
+                const originalAge = calculatedAge; // Сохраняем начальный возраст
+                ageElement.addEventListener('mouseover', () => {
+                    ageElement.textContent = ageElement.dataset.hoverText;
+                });
+
+                ageElement.addEventListener('mouseout', () => {
+                    ageElement.textContent = originalAge; // Возвращаем вычисленный возраст
+                });
+            }
+        }
+
+        updateAgeDisplay();
+        setInterval(updateAgeDisplay, 1000 * 60 * 60 * 24);
+
+
+        function setTheme(theme) {
+            body.classList.toggle('light-theme', theme === 'light');
+            if (theme === 'light') {
+                themeToggle.innerHTML = moonIcon;
+                localStorage.setItem('theme', 'light');
+            } else {
+                themeToggle.innerHTML = sunIcon;
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        themeToggle.addEventListener('click', function() {
+            const currentTheme = localStorage.getItem('theme') || 'dark';
+            setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+        });
+
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            setTheme(savedTheme);
         } else {
-           themeToggle.innerHTML = sunIcon;
-           localStorage.setItem('theme', 'dark');
+            setTheme('dark');
         }
-      }
-      themeToggle.addEventListener('click', function() {
-        const currentTheme = localStorage.getItem('theme') || 'dark';
-        setTheme(currentTheme === 'dark' ? 'light' : 'dark');
-      });
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme) {
-        setTheme(savedTheme);
-      } else {
-         setTheme('dark');
-      }
     </script>
 </body>
 </html>
