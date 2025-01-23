@@ -158,19 +158,6 @@
         } else {
             setTheme('dark');
         }
-
-   
-
-    function updateChartTheme(){
-        const theme = localStorage.getItem('theme') || 'dark';
-         visitChart.options.plugins.legend.labels.color = theme === 'light' ? '#333' : '#fff';
-          visitChart.update();
-    }
-    window.addEventListener('storage', () => {
-       updateChartTheme()
-    });
-
-    updateChartTheme();
     </script>
     </body>
     </html>
