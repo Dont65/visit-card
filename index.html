@@ -160,71 +160,7 @@
             setTheme('dark');
         }
 
-    // Функция для генерации дат за последние 21 день
-    function generateLastDays(numDays) {
-        const today = new Date();
-        const dates = [];
-        for (let i = numDays - 1; i >= 0; i--) {
-        const date = new Date(today);
-        date.setDate(today.getDate() - i);
-        dates.push(date.toLocaleDateString('ru-RU'));
-        }
-       return dates;
-    }
-
-    // Пример данных для графика (замените на ваши реальные данные)
-    function generateRandomNumbers(count, min, max) {
-        if (count <= 0 || min > max) {
-            return [];
-        }
-
-        const randomNumbers = [];
-        for (let i = 0; i < count; i++) {
-            const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
-            randomNumbers.push(randomNumber);
-        }
-        return randomNumbers;
-    }
-
-// Пример использования:
-    const count = 21;
-    const min = 0;
-    const max = 20;
-
-    const randomNumbers = generateRandomNumbers(count, min, max);
-    const visitData = {
-        labels: generateLastDays(21),
-        datasets: [{
-        label: 'Количество посещений',
-        data: randomNumbers, // Замените на ваши данные
-        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-        borderColor: 'rgba(75, 192, 192, 1)',
-        borderWidth: 1
-        }]
-    };
-
-    // Получение контекста canvas
-    const ctx = document.getElementById('visitChart').getContext('2d');
-
-    // Создание графика
-    const visitChart = new Chart(ctx, {
-      type: 'bar', // или 'line', 'bar' и тд
-      data: visitData,
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        },
-        plugins: {
-          legend: {
-              labels: {
-                color: localStorage.getItem('theme') === 'light' ? '#333' : '#fff', // Зависит от темы
-              }
-           }
-        }
-      }
-    });
+   
 
     function updateChartTheme(){
         const theme = localStorage.getItem('theme') || 'dark';
