@@ -8,6 +8,7 @@ body {
     align-items: center;
     min-height: 100vh;
     transition: background-color 0.3s ease, color 0.3s ease;
+    
 }
 
 .main-container {
@@ -15,6 +16,7 @@ body {
     flex-direction: column;
     align-items: center;
     position: relative;
+    width: 100%; /* Занимаем всю ширину контейнера*/
 }
 
 html {
@@ -26,6 +28,7 @@ html {
     position: absolute;
     top: 20px;
     right: 20px;
+    z-index: 2;
 }
 
 .theme-switcher {
@@ -51,7 +54,7 @@ html {
 main.content {
     flex: 1;
     background-color: #2d2d2d;
-    padding: 40px;
+    padding: 20px; /* Уменьшаем отступы для мобильных */
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
@@ -60,10 +63,13 @@ h1 {
     color: #f0f0f0;
     border-bottom: 2px solid #555;
     padding-bottom: 10px;
+    font-size: 1.8em; /* Уменьшаем размер заголовков для мобильных */
+    margin-bottom: 10px; /* Добавим отступ снизу */
 }
 
 p {
     margin-bottom: 10px;
+    font-size: 1em; /* Уменьшаем размер текста для мобильных */
 }
 
 strong {
@@ -73,16 +79,19 @@ strong {
 /* Общие стили для значков */
 .social-icons {
     display: flex;
-    gap: 25px;
+    gap: 20px;
     align-items: center;
+    justify-content: center; /* Выравниваем иконки по центру */
+    flex-wrap: wrap;
 }
 
 .social-icon {
     color: #fff;
-    font-size: 3em;
+    font-size: 2em; /* Уменьшаем размер иконок для мобильных */
     text-decoration: none;
     transition: color 0.3s ease;
-    padding: 15px;
+    padding: 10px;
+    
 }
 
 /* Стили для наведения, общие для всех (кроме специальных)*/
@@ -167,6 +176,7 @@ body.light-theme .social-icon.email-icon:hover {
     list-style-type: none;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center; /* Центрируем элементы списка навыков */
 }
 
 .skills li {
@@ -181,6 +191,7 @@ body.light-theme .social-icon.email-icon:hover {
     text-decoration: none;
     color: #fff;
     transition: background-color 0.3s ease;
+    font-size: 0.9em; /* Уменьшаем размер шрифта для мобильных */
 }
 
 .skills li a:hover {
@@ -257,22 +268,34 @@ body.light-theme strong {
 body.light-theme .language-switcher a {
     color: #333;
 }
-
+/* Медиазапросы для адаптивности */
 @media (max-width: 768px) {
     .wrapper {
         flex-direction: column;
     }
 
-    .theme-switcher {
-        top: 10px;
-        right: auto;
-        left: 10px;
+     main.content {
+        padding: 15px;
     }
 
+    h1 {
+       font-size: 1.5em;
+        margin-bottom: 5px;
+    }
+   
     .top-buttons {
         top: 10px;
         right: 10px;
     }
+
+    .theme-switcher {
+        left: 10px;
+    }
+    
+  .social-icon {
+     font-size: 1.8em; /* Еще немного уменьшим иконки для маленьких экранов */
+     padding: 8px;
+  }
 }
 
 /* Стили для раздела проектов */
@@ -280,7 +303,7 @@ body.light-theme .language-switcher a {
 .projects {
     width: 90%;
     max-width: 1200px;
-    padding: 20px;
+    padding: 15px; /* Уменьшаем отступы для мобильных */
     margin: 20px 0;
     background-color: #2d2d2d;
     border-radius: 10px;
@@ -291,12 +314,12 @@ body.light-theme .language-switcher a {
 .project-container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px; /* Уменьшаем отступы для мобильных */
 }
 
 .project {
     background-color: #3d3d3d;
-    padding: 15px;
+    padding: 10px; /* Уменьшаем отступы для мобильных */
     border-radius: 8px;
 }
 
@@ -308,6 +331,7 @@ body.light-theme .language-switcher a {
     display: flex;
     align-items: center;
     gap: 5px;
+    font-size: 1.2em; /* Уменьшаем размер заголовков проектов для мобильных */
 }
 
 .closed-tag {
@@ -315,7 +339,7 @@ body.light-theme .language-switcher a {
     color: #fff;
     padding: 2px 5px;
     border-radius: 3px;
-    font-size: 0.8em;
+    font-size: 0.7em; /* Уменьшаем размер тега для мобильных */
 }
 
 .frozen-tag {
@@ -323,11 +347,12 @@ body.light-theme .language-switcher a {
     color: #fff;
     padding: 2px 5px;
     border-radius: 3px;
-    font-size: 0.8em;
+    font-size: 0.7em;  /* Уменьшаем размер тега для мобильных */
 }
 
 .project p {
     margin-bottom: 10px;
+     font-size: 0.9em;
 }
 
 body.light-theme .projects {
@@ -373,9 +398,9 @@ body.light-theme .project h2 {
 
 .empty-header {
     color: #f0f0f0;
-    font-size: 3em;
+    font-size: 2.5em; /* Уменьшаем размер заголовка для мобильных */
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 body.light-theme .empty-header {
@@ -383,7 +408,7 @@ body.light-theme .empty-header {
 }
 
 .content-spacer {
-    height: 100px;
+    height: 80px;
     width: 100%;
 }
 
@@ -392,8 +417,8 @@ body.light-theme .empty-header {
 }
 
 .namemc-icon {
-    width: 50px;
-    height: 50px;
+    width: 40px; /* Уменьшаем размер иконок для мобильных */
+    height: 40px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -435,15 +460,28 @@ p a:hover {
 body.light-theme p a {
     color: #333; /* Цвет для светлой темы */
 }
+
+/* Стили для графика */
 .chart-container {
-    width: 100%; /* Занимает всю доступную ширину */
-    display: flex; /* Используем flexbox для центрирования, если нужно */
-    justify-content: center; /* Центрируем по горизонтали, если нужно */
-    align-items: center; /* Центрируем по вертикали, если нужно */
-    padding: 20px 0;  /* Добавляем отступ сверху и снизу */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+}
+.visitChart {
+    width: 100%;
+    max-width: 1000px;
 }
 
-.visitChart {
-   width: 100%;
-   max-width:1900px;
+.language-switcher a {
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    text-decoration: none;
+    padding: 10px; /* Увеличиваем отступы для области нажатия */
+    display: block; /* Важно для увеличения области нажатия */
 }
